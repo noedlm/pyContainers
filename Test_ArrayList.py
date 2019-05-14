@@ -1,6 +1,6 @@
 # Create:
-# Read: size, isEmpty, at
-# Update: insert, append, []?, replace?, get?, at?
+# Read: size, is_empty, at
+# Update: insert, append, replace
 # Delete: remove
 
 import unittest
@@ -31,18 +31,14 @@ class TestArrayListMethods(unittest.TestCase):
         arrayListContents = ArrayList([0, 1, 2])
         self.assertEquals(arrayListContents.size(), 3)
 
-        # different element types
-        arrayListSame = ArrayList([0, "string", 1.1])
-        self.assertEquals(arrayListSame.size(), 3)
-
-    def test_isEmpty(self):
+    def test_is_empty(self):
         # is empty
         arrayListEmpty = ArrayList()
-        self.assertTrue(arrayListEmpty.isEmpty())
+        self.assertTrue(arrayListEmpty.is_empty())
 
         # is not empty
         arrayListNotEmpty = ArrayList([0])
-        self.assertFalse(arrayListNotEmpty.isEmpty())
+        self.assertFalse(arrayListNotEmpty.is_empty())
 
     def test_append(self):
         testArrayList = ArrayList()
@@ -50,10 +46,6 @@ class TestArrayListMethods(unittest.TestCase):
         # append
         testArrayList.append(0)
         self.assertEquals(testArrayList.size(), 1)
-
-        # append different type
-        testArrayList.append('x')
-        self.assertEquals(testArrayList.size(), 2)
 
     def test_at(self):
         testArrayList = ArrayList("first")
@@ -68,6 +60,7 @@ class TestArrayListMethods(unittest.TestCase):
         except:
             print("test_at: PASS .at() negative position")
 
+        # at position greater than max
         try:
             atLargerSize = testArrayList.at(5)
             print("test_at: FAIL .at() position greater than max")
@@ -77,23 +70,16 @@ class TestArrayListMethods(unittest.TestCase):
     def test_insert(self):
         testArrayList = ArrayList()
 
-        # insert out of bounds on empty
-        try:
-            testArrayList.insert(5, "can't do this")
-            print("test_insert: FAIL out of bounds on empty")
-        except:
-            print("test_insert: PASS out of bounds on empty")
-
-        # insert on empty
-        testArrayList.insert(0, "first")
-        self.assertEquals(testArrayList.at(0), "first")
-
         # insert out of bounds
         try:
             testArrayList.insert(5, "can't do this")
             print("test_insert: FAIL out of bounds")
         except:
             print("test_insert: PASS out of bounds")
+
+        # insert on empty
+        testArrayList.insert(0, "first")
+        self.assertEquals(testArrayList.at(0), "first")
 
         # insert after
         testArrayList.insert(1, "second")
@@ -104,6 +90,9 @@ class TestArrayListMethods(unittest.TestCase):
         self.assertEquals(testArrayList.at(0), "third")
         self.assertEquals(testArrayList.at(1), "first")
         self.assertEquals(testArrayList.at(2), "second")
+
+        # insert different type
+        self.assertRaises(TypeError, testArrayList.insert(1, 10))
 
     def test_replace(self):
         testArrayList = ArrayList()
@@ -119,20 +108,12 @@ class TestArrayListMethods(unittest.TestCase):
         testArrayList.append(1)
         testArrayList.append(2)
 
-        # replace out of bounds
-        try:
-            testArrayList.replace(5, 10)
-            print("test_replace: FAIL out of bounds")
-        except:
-            print("test_replace: PASS out of bounds")
-
         # replace value
         testArrayList.replace(1, 10)
         self.assertEquals(testArrayList.at(1), 10)
 
-        # replace type
-        testArrayList.replace(0, "zero")
-        self.assertEquals(testArrayList.at(0), "zero")
+        # replace different type
+        self.assertRaises(TypeError, testArrayList.replace(1, "ten"))
 
     def test_remove(self):
         testArrayList = ArrayList()

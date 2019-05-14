@@ -1,5 +1,5 @@
 # Create:
-# Read: size, isEmpty, contains
+# Read: size, is_empty, contains
 # Update: insert
 # Delete: remove
 
@@ -35,14 +35,14 @@ class TestUnorderedSetListMethods(unittest.TestCase):
         setSame = UnorderedSet([2, 2, 2])
         self.assertEquals(setSame.size(), 1)
 
-    def test_isEmpty(self):
+    def test_is_empty(self):
         # empty
         setEmpty = UnorderedSet()
-        self.assertTrue(setEmpty.isEmpty())
+        self.assertTrue(setEmpty.is_empty())
 
         # not empty
         setNotEmpty = UnorderedSet([1, 2])
-        self.assertFalse(setEmpty.isEmpty())
+        self.assertFalse(setEmpty.is_empty())
 
     def test_contains(self):
         # empty
@@ -57,22 +57,25 @@ class TestUnorderedSetListMethods(unittest.TestCase):
         setContains = UnorderedSet(['x', 'a', 'z'])
         self.assertTrue(setContains.contains('x'))
 
-    def test_insert(self):
-        setIns = UnorderedSet()
+    def test_add(self):
+        setAdd = UnorderedSet()
 
         # empty
-        setIns.insert('b')
-        self.assertEquals(setIns.size(), 1)
-        self.assertTrue(setIns.contains('b'))
+        setAdd.add('b')
+        self.assertEquals(setAdd.size(), 1)
+        self.assertTrue(setAdd.contains('b'))
 
         # same value
-        setIns.insert('b')
-        self.assertEquals(setIns.size(), 1)
+        setAdd.add('b')
+        self.assertEquals(setAdd.size(), 1)
 
         # different value
-        setIns.insert('a')
-        self.assertEquals(setIns.size(), 2)
-        self.assertTrue(setIns.contains('a'))
+        setAdd.add('a')
+        self.assertEquals(setAdd.size(), 2)
+        self.assertTrue(setAdd.contains('a'))
+
+        # different type
+        self.assertRaises(TypeError, setAdd(3))
 
     def test_remove(self):
         setRem = UnorderedSet()
