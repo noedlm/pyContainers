@@ -36,11 +36,7 @@ class TestOrderedSetMethods(unittest.TestMethod):
     def test_type_checking(self):
         orderedset = OrderedSet()
         orderedset.add('a')
-        try:
-            orderedset.add(1)
-            print('TEST TYPE CHECK: FAIL')
-        except:
-            print('TEST TYPE CHECK: PASS')
+        self.assertRaises(TypeError, orderedset.add(1))
 
     def test_list_initialization(self):
         orderedset_a = OrderedSet([1,2,3,4,5])

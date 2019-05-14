@@ -28,11 +28,7 @@ class TestQueueMethods(unittest.TestMethod):
     def test_type_checking(self):
         q = Queue()
         q.push('a')
-        try:
-            q.push(1)
-            print('TEST TYPE CHECK: FAIL')
-        except:
-            print('TEST TYPE CHECK: PASS')
+        self.assertRaises(TypeError, q.push(1))
 
     def test_pop(sef):
         q = Queue()

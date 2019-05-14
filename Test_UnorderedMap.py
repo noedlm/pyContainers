@@ -24,19 +24,11 @@ class TestUnorderedMapMethods(unittest.TestMethod):
         u_map.put('b',2)
         self.assertEqual(UnorderedMap.size(), 2)
 
-    def test_type_checking(self):
+    def test_type_error(self):
         u_map = UnorderedMap()
         u_map.put('a',1)
-        try:
-            u_map.put(1, 1)
-            print('TEST TYPE CHECK (KEY): FAIL')
-        except:
-            print('TEST TYPE CHECK (KEY): PASS')
-        try:
-            u_map.put('b', 'b')
-            print('TEST TYPE CHECK (VALUE): FAIL')
-        except:
-            print('TEST TYPE CHECK (VALUE): PASS')
+        u_map.assertRaises(TypeError, u_map.put(1, 1))
+        u_map.assertRaises(TypeError, u_map.put('b', 'b'))
 
     def test_get(sef):
         u_map = UnorderedMap()
