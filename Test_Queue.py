@@ -1,3 +1,8 @@
+# Create:
+# Read: size, peek
+# Update: push
+# Delete: pop, clear
+
 import unittest
 from containers.Queue import Queue
 
@@ -10,24 +15,24 @@ class TestQueueMethods(unittest.TestMethod):
             print('TEST CONSTRUCTOR: FAIL')
 
     def test_size(self):
-        try:
-            q = Queue()
-            q.size()
-            print('TEST SIZE: PASS')
-        except:
-            print('TEST SIZE: FAIL')
+        q = Queue()
+        self.assertEqual(q.size(), 0)
 
     def test_push(self):
-        try:
-            q = Queue()
-            q.push(1)
-            print('TEST.push: PASS')
-        except:
-            print('TEST.push: FAIL')
         q = Queue()
+        self.assertEqual(q.size(), 0)
         q.push(1)
         q.push(2)
         self.assertEqual(q.size(), 2)
+
+    def test_type_checking(self):
+        q = Queue()
+        q.push('a')
+        try:
+            q.push(1)
+            print('TEST TYPE CHECK: FAIL')
+        except:
+            print('TEST TYPE CHECK: PASS')
 
     def test_pop(sef):
         q = Queue()
@@ -53,4 +58,4 @@ class TestQueueMethods(unittest.TestMethod):
         q.push(2)
         q.push(3)
         q.clear()
-        self.assertEqual(q, Queue())
+        self.assertEqual(q.size(), 0)
