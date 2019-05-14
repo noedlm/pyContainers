@@ -2,10 +2,15 @@ import unittest
 from containers.stack import Stack
 
 class TestStackMethods(unittest.TestCase):
+    def test_initialize_empty_stack(self):
+        newStack = Stack()
+        self.asser
+
     def test_push(self):
-        newStack = stack()
+        newStack = Stack()
         newStack.push(1)
-        self.assertEqual(newStack, [1])
+        self.assertEqual(newStack, Stack([1]))
+        self.assertFalse(newStack, [0])
 
     def test_pop(self):
         newStack = stack([1,2,3,4])
