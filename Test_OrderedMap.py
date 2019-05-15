@@ -34,12 +34,16 @@ class TestOrderedMapMethods(unittest.TestCase):
         orderedMap.put('key', 'newValue')
         self.assertEqual(orderedMap.size(), 1)
 
-    def test_put_type_error(self):
+    def test_put_key_type_error(self):
         orderedMap = OrderedMap()
         orderedMap.put('key', 'value')
         self.assertRaises(TypeError, orderedMap.put(2, 'a'))
+
+    def test_put_value_type_error(self):
+        orderedMap = OrderedMap()
+        orderedMap.put('key', 'value')
         self.assertRaises(TypeError, orderedMap.put('k', 4))
-        self.assertRaises(TypeError, orderedMap.put(1, 5))
+
 
     def test_get(self):
         orderedMap = OrderedMap()
