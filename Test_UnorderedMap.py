@@ -24,10 +24,14 @@ class TestUnorderedMapMethods(unittest.TestMethod):
         u_map.put('b',2)
         self.assertEqual(UnorderedMap.size(), 2)
 
-    def test_type_error(self):
+    def test_type_error_key(self):
         u_map = UnorderedMap()
         u_map.put('a',1)
         u_map.assertRaises(TypeError, u_map.put(1, 1))
+
+    def test_type_error_value(self):
+        u_map = UnorderedMap()
+        u_map.put('a',1)
         u_map.assertRaises(TypeError, u_map.put('b', 'b'))
 
     def test_get(sef):
