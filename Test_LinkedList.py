@@ -1,8 +1,8 @@
 '''
 Create:
-Read: size, is_empty, at
-Update: append, insert, replace
-Delete: clear, remove
+Read: int size (1), bool is_empty (1), <T> at (n)
+Update: void append (1), void insert (n), void replace (n)
+Delete: void clear (1), <T> remove (n)
 '''
 import unittest
 from containers.linkedList import LinkedList

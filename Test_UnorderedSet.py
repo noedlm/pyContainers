@@ -1,7 +1,7 @@
 # Create:
-# Read: size, is_empty, contains
-# Update: insert
-# Delete: remove
+# Read: int size (1), bool is_empty (1), bool contains (1)
+# Update: void insert (1)
+# Delete: void remove (1)
 
 import unittest
 from containers.UnorderedSet import UnorderedSet

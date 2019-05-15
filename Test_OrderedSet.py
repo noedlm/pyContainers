@@ -1,7 +1,7 @@
 # Create:
-# Read: size, contains, first, last
-# Update: add
-# Delete: remove, clear
+# Read: int size (1), bool contains (log n), <T> first (log n), <T> last (log n)
+# Update: void add (log n)
+# Delete: void remove (log n), void clear (1)
 
 import unittest
 from containers.orderedset import OrderedSet

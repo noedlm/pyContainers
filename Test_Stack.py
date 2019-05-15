@@ -1,8 +1,8 @@
 '''
 Create:
-Read: peek, size
-Update: push
-Delete: pop, clear
+Read: <T> peek (1), int size (1)
+Update: void push (1)
+Delete: <T> pop (1), void clear (1)
 '''
 import unittest
 from containers.stack import Stack

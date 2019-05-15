@@ -1,7 +1,7 @@
 # Create:
-# Read: size, get, contains_key, key_set
-# Update: put
-# Delete: remove, clear
+# Read: int size (1), <T> get (1), bool contains_key (1), [<T>] key_set (n)
+# Update: void put (1)
+# Delete: <T> remove (1), void clear (1)
 
 import unittest
 from containers.UnorderedMap import UnorderedMap

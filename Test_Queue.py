@@ -1,7 +1,7 @@
 # Create:
-# Read: size, peek
-# Update: push
-# Delete: pop, clear
+# Read: int size (1), <T> peek (1)
+# Update: void push (1)
+# Delete: <T> pop (1), void clear (1)
 
 import unittest
 from containers.Queue import Queue
