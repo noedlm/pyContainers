@@ -1,7 +1,7 @@
 # Create:
-# Read: size, is_empty, peek_front, peek_back
-# Update: pushFront, pushBack
-# Delete: pop_front, pop_back
+# Read: int size (1), bool is_empty (1), <T> peek_front (1), <T> peek_back (1)
+# Update: void push_front (1), void push_back (1)
+# Delete: <T> pop_front (1), <T> pop_back (1), void clear (1)
 
 import unittest
 from containers.Deque import Deque
@@ -66,32 +66,32 @@ class TestDequeListMethods(unittest.TestCase):
         dequeNotEmpty = Deque([1, 2])
         self.assertEquals(dequeNotEmpty.peek_back(), 2)
 
-    def test_pushFront(self):
+    def test_push_front(self):
         deque = Deque()
 
         # empty
-        deque.pushFront("front")
+        deque.push_front("front")
         self.assertEquals(deque.peek_back(), "front")
         
         # not empty
-        deque.pushFront("new front")
+        deque.push_front("new front")
         self.assertEquals(deque.peek_front(), "new front")
 
         # different type
-        self.assertRaises(TypeError, deque.pushFront(0))
+        self.assertRaises(TypeError, deque.push_front(0))
 
-    def test_pushBack(self):
+    def test_push_back(self):
         deque = Deque()
         # empty
-        deque.pushBack("back")
+        deque.push_back("back")
         self.assertEquals(deque.peek_front(), "back")
 
         # not empty
-        deque.pushBack("new back")
+        deque.push_back("new back")
         self.assertEquals(deque.peek_back(), "new back")
 
         # different type
-        self.assertRaises(TypeError, deque.pushBack(0))
+        self.assertRaises(TypeError, deque.push_back(0))
 
     def test_pop_front(self):
         # empty

@@ -1,7 +1,7 @@
 # Create:
-# Read: size, is_empty, at
-# Update: insert, append, replace
-# Delete: remove
+# Read: int size (1), bool is_empty (1), <T> at (1)
+# Update: void insert (n), void append (1), void replace (1)
+# Delete: <T> remove (n), void clear (1)
 
 import unittest
 from containers.ArrayList import ArrayList

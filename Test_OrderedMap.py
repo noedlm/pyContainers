@@ -1,8 +1,8 @@
 '''
 Create:
-Read: size, get, keys, contains, is_empty
-Update: put, 
-Delete: clear, remove
+Read: int size (1), <T> get (log n), [<T>] keys (n), bool contains (log n), bool is_empty (1)
+Update: void put (log n) 
+Delete: void clear (1), <T> remove (log n)
 '''
 import unittest
 from containers.OrderedMap import OrderedMap
