@@ -19,6 +19,10 @@ class TestStackMethods(unittest.TestCase):
         newStack = Stack()
         self.assertFalse(newStack.size())
 
+    def test_is_empty(self):
+        newStack = Stack()
+        self.assertTrue(newStack.is_empty())
+
     def test_push(self):
         newStack = Stack()
         newStack.push(1)
