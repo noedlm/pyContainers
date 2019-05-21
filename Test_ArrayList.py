@@ -140,3 +140,8 @@ class TestArrayListMethods(unittest.TestCase):
         testArrayList.remove(1)
         self.assertEquals(testArrayList.size(), 2)
         self.assertEquals(testArrayList.at(1), 2)
+
+    def test_clear(self):
+        arrayList = ArrayList([1])
+        arrayList.clear()
+        self.assertEquals(arrayList.size(), 0)

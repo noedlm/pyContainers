@@ -1,7 +1,7 @@
 # Create:
 # Read: int size (1), bool is_empty (1), bool contains (1)
 # Update: void insert (1)
-# Delete: void remove (1)
+# Delete: void remove (1), void clear (1)
 
 import unittest
 from containers.UnorderedSet import UnorderedSet
@@ -95,3 +95,8 @@ class TestUnorderedSetListMethods(unittest.TestCase):
         # value doesn't exist
         setRem.remove(9)
         self.assertEquals(setRem.size(), 2)
+
+    def test_clear(self):
+        setClr = UnorderedSet([1])
+        setClr.clear();
+        self.assertEquals(setClr.size(), 0)

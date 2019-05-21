@@ -124,3 +124,8 @@ class TestDequeListMethods(unittest.TestCase):
         self.assertEquals(dequeNotEmpty.size(), 2)
         self.assertEquals(dequeNotEmpty.peek_front(), 0)
         self.assertEquals(dequeNotEmpty.peek_back(), 1)
+
+    def test_clear(self):
+        deque = Deque([1])
+        deque.clear()
+        self.assertEquals(deque.size(), 0)
